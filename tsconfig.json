@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "Node16", // Ensure you're using CommonJS (or ESNext if you're fully switching)
+    "target": "ES2020", // Your target ECMAScript version
+    "moduleResolution": "node16", // Change module resolution to 'node16' or 'nodenext'
+    "esModuleInterop": true, // Allows better interop with CommonJS modules
+    "skipLibCheck": true, // Skip checking of declaration files
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist", // Where to output compiled files
+    "rootDir": "./src", // Your source directory
+    "types": ["node", "express"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,38 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "darwin-arm64", "linux-arm64-openssl-3.0.x"]
+}
+
+model Admin {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model FoodTruckPermit {
+  id                Int      @id @default(autoincrement())
+  location_id       Int
+  applicant         String
+  facility_type     String
+  location_desc     String
+  address           String
+  permit            String
+  status            String
+  food_items        String?
+  latitude          Float
+  longitude         Float
+  schedule_url      String?
+  approved_date     DateTime?
+  expiration_date   DateTime?
+  neighborhood      String
+  zip_code          Int?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
